@@ -370,7 +370,7 @@ def publik(token):
         it = _cici_dapunta_("%s╠══[%s•%s] %sID Target : "%(O,P,O,P))
         cek_target_crack_(it)
         try:
-            pb = _req_get_("https://graph.facebook.com/" + it + "?fields=name,id,first_name,middle_name,last_name,name_format,picture,short_name&access_token=" + token)
+            pb = _req_get_("https://graph.facebook.com/" + it + "?fields=name,friends,id,first_name,middle_name,last_name,name_format,picture,short_name&access_token=" + token)
             ob = _js_lo_(pb.text)
             _dapunta_cici_ ('%s╠══[%s•%s] %sNama : %s'%(O,P,O,P,ob['name']))
         except (KeyError,IOError):
