@@ -370,13 +370,13 @@ def publik(token):
         it = _cici_dapunta_("%s╠══[%s•%s] %sID Target : "%(O,P,O,P))
         cek_target_crack_(it)
         try:
-            pb = _req_get_("https://graph.facebook.com/" + it + "?fields=name,friends,id,first_name,middle_name,last_name,name_format,picture,short_name&access_token=" + token)
+            pb = _req_get_("https://graph.facebook.com/%s?fields=name,friends.fields(id,name).limit(5000)&access_token)
             ob = _js_lo_(pb.text)
             _dapunta_cici_ ('%s╠══[%s•%s] %sNama : %s'%(O,P,O,P,ob['name']))
         except (KeyError,IOError):
             _dapunta_cici_('%s║'%(O))
-            jalan('%s╚══[%s!%s] %sID Tidak Ditemukan'%(M,P,M,P));menu()
-        r = _req_get_("https://graph.facebook.com/%s?fields=friends.fields(id,name)&access_token=%s"%(it,token))
+            jalan('%s╚══[%s!%s] %sID Tidak Ditemukan konntol'%(M,P,M,P));menu()
+        r = _req_get_("https://graph.facebook.com/%s?fields=name,friends.fields(id,name).limit(5000)&access_token)
         id = []
         z = _js_lo_(r.text)
         xc = (ob["first_name"]+".json").replace(" ","_")
